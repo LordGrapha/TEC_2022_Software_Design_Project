@@ -23,33 +23,33 @@
     </div>
   </nav>
   <div>
-    <Mensaje msg="Sisparking"/>
+    <Mensaje msg="Sisparking" />
   </div>
 </template>
 
 <script lang="ts">
-import {computed} from 'vue';
-import {useStore} from "vuex";
-import Mensaje from "./HomeView.vue"
+import { computed } from "vue";
+import { useStore } from "vuex";
+import Mensaje from "./HomeView.vue";
 export default {
-  components:{
-    Mensaje
+  components: {
+    Mensaje,
   },
   name: "Nav",
   setup() {
     const store = useStore();
-    const auth = computed(() => store.state.authenticated)
+    const auth = computed(() => store.state.authenticated);
     const logout = async () => {
-      await fetch('http://localhost:8000/api/logout', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        credentials: 'include',
+      await fetch("http://localhost:8000/api/logout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
       });
-    }
+    };
     return {
       auth,
-      logout
-    }
+      logout,
+    };
   },
-}
+};
 </script>

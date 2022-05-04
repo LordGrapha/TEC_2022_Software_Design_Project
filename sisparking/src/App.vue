@@ -1,27 +1,28 @@
 <template>
-  <Nav/>
+  <Nav />
 
   <main class="form-signin">
-    <router-view/>
+    <router-view />
   </main>
 </template>
 
 <script>
-
 import Nav from "@/components/Nav";
 
 export default {
-  components: {Nav}
-}
-
+  components: { Nav },
+};
 </script>
 
 <style>
+h1 {
+  text-align: center;
+}
+
 .form-signin {
   width: 100%;
   max-width: 330px;
   padding: 15px;
-  margin: auto;
 }
 .form-signin .checkbox {
   font-weight: 400;
@@ -51,9 +52,9 @@ export default {
   width: 100px;
   background: black;
   /* Codigo para centrar*/
-  display: flex;
+  /*display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;*/
   /* Fin del codigo para centrar*/
 }
 .hijo {
