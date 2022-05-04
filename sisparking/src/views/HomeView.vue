@@ -2,6 +2,7 @@
   <div class="padre">
     <img  src="../assets/TEC.png">
   </div>
+  <!-- <Mensaje msg="Sisparking"/> -->
 </template>
 
 <script lang="ts">

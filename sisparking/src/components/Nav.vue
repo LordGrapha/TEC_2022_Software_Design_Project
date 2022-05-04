@@ -22,9 +22,7 @@
       </div>
     </div>
   </nav>
-  <div>
-    <Mensaje msg="Sisparking"/>
-  </div>
+
 </template>
 
 <script lang="ts">
