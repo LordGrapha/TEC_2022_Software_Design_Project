@@ -1,57 +1,52 @@
-import express from 'express';
-import morgan from 'morgan';
-import cors from 'cors';
-import path from 'path';
-import history from 'connect-history-api-fallback';
+import express from "express";
 import mongoose, { ConnectOptions } from 'mongoose';
+import Routes from './routes/routes';
+//import * as database from "./db"
+import path = require("path");
+const cors = require('cors');
 
 class App {
 
-  private app = express();
+    public app: express.Application;
+    public db: any;
 
-  constructor() {
-    this.configMiddleware();
-    this.configRoutes()
-    //Once database is connected, then it starts the server
-    this.connectDatabase().then(() => {
-      this.startServer();
-    });  
-  }
+    constructor() {
+        //this.db = database.default;
+        this.app = express();
+        this.middleware();
+        
+        this.connectToDatabase().then(()=>{
+            console.log('Connected to mongodb');
+            this.routes();
+        }).catch((err : any)=>{
+            console.log(err);
+        });
+    }
 
-  private configMiddleware(){
-    // Middleware
-    this.app.use(morgan('tiny'));
-    this.app.use(cors());
-    this.app.use(express.json());
-    this.app.use(express.urlencoded({ extended: true }));
 
-    // Middleware para Vue.js router modo history
-    this.app.use(history());
-    this.app.use(express.static(path.join(__dirname, 'public')));
-  }
+    // Configure Express middleware.
+    private middleware(): void {
+        this.app.use(express.json());
+        this.app.use(express.urlencoded({ extended: false }));
+        this.app.use(
+            cors({
+              origin: [/^http:\/\/localhost/],
+              credentials: true,
+            })
+          );
+    }
 
-  private configRoutes(){
-    // Rutas
-    this.app.get('/', (req, res) => {
-      res.send('Hello World!');
-    });
-  }
+    private connectToDatabase(){
+        return mongoose.connect("mongodb+srv://tec:tec@cluster0.jngjz.mongodb.net/sisparking?retryWrites=true&w=majority");
+    }
 
-  private async connectDatabase(){
-    const uri = 'mongodb+srv://test:test@teccluster.ke5kh.mongodb.net/sisparking?retryWrites=true&w=majority';
-    const options = {useNewUrlParser: true, useUnifiedTopology: true};
-    await mongoose.connect(uri, options as ConnectOptions);
-    console.log("Connected to MongoDB");
-    
-  }
+    private routes(): void {
+        this.app.use('/api', Routes);
 
-  private startServer(){
-    this.app.set('port', process.env.PORT || 3000);
-    this.app.listen(this.app.get('puerto'), () => {
-      console.log('Example app listening on port: '+ this.app.get('port'));
-    });
-  }
-
+        this.app.use('*', (req, res) => {
+            res.send("Request invalido");
+        });
+    }
 }
 
-new App();
+export default new App().app;
