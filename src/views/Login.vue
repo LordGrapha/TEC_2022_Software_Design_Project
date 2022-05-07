@@ -22,13 +22,21 @@ export default {
     });
     const router = useRouter();
     const submit = async () => {
-      await fetch('http://localhost:8000/api/login', {
+      const response = await fetch('https://sisparking-backend.herokuapp.com//api/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         credentials: 'include',
         body: JSON.stringify(data)
       });
-      await router.push('/');
+      console.log(response);
+      
+      if(response){
+        await router.push('/menu');
+      }
+      else {
+        alert("Credenciales incorrectos")
+      }
+      
     }
     return {
       data,
