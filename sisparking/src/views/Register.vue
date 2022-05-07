@@ -1,15 +1,27 @@
 <template>
-  <form @submit.prevent="submit">
-    <h1 class="h3 mb-3 fw-normal">Por favor registrarse</h1>
+  <div class=container>
+    <form @agregar.prevent="agregar">
+      <h1 class="h3 mb-3 fw-normal">Gestión de Usuario</h1>
 
-    <input v-model="data.name" class="form-control" placeholder="Nombre" required>
+      <input v-model="data.name" class="form-control" placeholder="Nombre de usuario" required>
 
-    <input v-model="data.email" type="email" class="form-control" placeholder="Correo" required>
+      <input v-model="data.email" type="email" class="form-control" placeholder="Correo" required>
 
-    <input v-model="data.password" type="password" class="form-control" placeholder="Contraseña" required>
+      <input v-model="data.password" type="placa" class="form-control" placeholder="Número de Placa" required>
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar</button>
-  </form>
+      <button class="w-100 btn btn-lg btn-primary" type="agregar">Agregar</button>
+    </form>
+    <div>
+      <p>
+        <input type="checkbox" v-model="reserva">
+        Permiso reserva
+      </p>
+      <p>
+        <input type="checkbox" v-model="consulta">
+        Permiso consulta
+      </p>             
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -21,10 +33,10 @@ export default {
     const data = reactive({
       name: '',
       email: '',
-      password: ''
+      placa: ''
     });
     const router = useRouter();
-    const submit = async () => {
+    const agregar = async () => {
       await fetch('http://localhost:8000/api/register', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -34,7 +46,7 @@ export default {
     }
     return {
       data,
-      submit
+      agregar
     }
   }
 }
