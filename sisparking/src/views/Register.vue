@@ -1,6 +1,7 @@
 <template>
+
   <div class=container>
-    <form @agregar.prevent="agregar">
+    <form @submit.prevent="agregar">
       <h1 class="h3 mb-3 fw-normal">Gestión de Usuario</h1>
 
       <input v-model="data.name" class="form-control" placeholder="Nombre de usuario" required>
@@ -9,9 +10,10 @@
 
       <input v-model="data.password" type="placa" class="form-control" placeholder="Número de Placa" required>
 
-      <button class="w-100 btn btn-lg btn-primary" type="agregar">Agregar</button>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Agregar</button>
     </form>
-    <div>
+
+    <div class=box>
       <p>
         <input type="checkbox" v-model="reserva">
         Permiso reserva
@@ -21,6 +23,7 @@
         Permiso consulta
       </p>             
     </div>
+
   </div>
 </template>
 
@@ -36,7 +39,7 @@ export default {
       placa: ''
     });
     const router = useRouter();
-    const agregar = async () => {
+    const submit = async () => {
       await fetch('http://localhost:8000/api/register', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -46,8 +49,9 @@ export default {
     }
     return {
       data,
-      agregar
+      submit
     }
   }
 }
+
 </script>
