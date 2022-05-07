@@ -6,10 +6,7 @@ import Menu from '@/components/Menu.vue'
 import Reservacion from '@/components/Reservacion.vue'
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', component: Login },
-  { path: '/register', component: Register },
-  { path: '/menu', component: Menu },
-  { path: '/gestion_reserva', component: Reservacion },
+  { path: '/', component: Login }
 ]
 
 const router = createRouter({

@@ -10,9 +10,7 @@
           <li class="nav-item">
             <router-link to="/" class="nav-link">Login</router-link>
           </li>
-          <li class="nav-item">
-            <router-link to="/register" class="nav-link">Register</router-link>
-          </li>
+
         </ul>
 
         <ul class="navbar-nav me-auto mb-2 mb-md-0" v-if="auth">
