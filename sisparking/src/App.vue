@@ -1,9 +1,9 @@
 <template>
   <Nav />
-
-  <main class="form-signin">
-    <router-view />
-  </main>
+    <main class="form-signin">
+      <router-view />
+    </main>
+    
 </template>
 
 <script>
@@ -61,5 +61,8 @@ h1 {
   height: 10px;
   width: 10px;
   background: red;
+}
+.box {
+  display: flex;
 }
 </style>

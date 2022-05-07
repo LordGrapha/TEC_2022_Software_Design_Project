@@ -1,15 +1,30 @@
 <template>
-  <form @submit.prevent="submit">
-    <h1 class="h3 mb-3 fw-normal">Por favor registrarse</h1>
 
-    <input v-model="data.name" class="form-control" placeholder="Nombre" required>
+  <div class=container>
+    <form @submit.prevent="agregar">
+      <h1 class="h3 mb-3 fw-normal">Gestión de Usuario</h1>
 
-    <input v-model="data.email" type="email" class="form-control" placeholder="Correo" required>
+      <input v-model="data.name" class="form-control" placeholder="Nombre de usuario" required>
 
-    <input v-model="data.password" type="password" class="form-control" placeholder="Contraseña" required>
+      <input v-model="data.email" type="email" class="form-control" placeholder="Correo" required>
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar</button>
-  </form>
+      <input v-model="data.password" type="placa" class="form-control" placeholder="Número de Placa" required>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Agregar</button>
+    </form>
+
+    <div class=box>
+      <p>
+        <input type="checkbox" v-model="reserva">
+        Permiso reserva
+      </p>
+      <p>
+        <input type="checkbox" v-model="consulta">
+        Permiso consulta
+      </p>             
+    </div>
+
+  </div>
 </template>
 
 <script lang="ts">
@@ -21,7 +36,7 @@ export default {
     const data = reactive({
       name: '',
       email: '',
-      password: ''
+      placa: ''
     });
     const router = useRouter();
     const submit = async () => {
@@ -38,4 +53,5 @@ export default {
     }
   }
 }
+
 </script>
