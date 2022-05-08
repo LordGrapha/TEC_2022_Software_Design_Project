@@ -1,18 +1,18 @@
 <template>
     <div>
         <div>
-            <b-button variant="todos">Todos los estacionamientos</b-button>
-        </div>        
-     <div>
-            <b-button variant="funcionarios">Funcionarios de la institución</b-button>
+            <p></p>
+            <button variant="todos">Todos los estacionamientos</button>
         </div>        
         <div>
-            <b-button variant="estadistica">Estadistica franjas horarias</b-button>
+            <button variant="funcionarios">Funcionarios de la institución</button>
         </div>        
         <div>
-            <b-button variant="funcionarios_cedula">Funcionario por cedula</b-button>
+            <button variant="estadistica">Estadistica franjas horarias</button>
         </div>        
-
+        <div>
+            <button variant="funcionarios_cedula">Funcionario por cedula</button>
+        </div>
     </div>
 
 </template>
