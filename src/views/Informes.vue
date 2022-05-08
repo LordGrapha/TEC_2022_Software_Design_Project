@@ -1,16 +1,16 @@
 <template>
     <div>
         <div>
-            <b-buttom variant="todos">Todos los estacionamientos</b-buttom>
+            <b-button variant="todos">Todos los estacionamientos</b-button>
         </div>        
      <div>
-            <b-buttom variant="funcionarios">Funcionarios de la institución</b-buttom>
+            <b-button variant="funcionarios">Funcionarios de la institución</b-button>
         </div>        
         <div>
-            <b-buttom variant="estadistica">Estadistica franjas horarias</b-buttom>
+            <b-button variant="estadistica">Estadistica franjas horarias</b-button>
         </div>        
         <div>
-            <b-buttom variant="funcionarios_cedula">Funcionario por cedula</b-buttom>
+            <b-button variant="funcionarios_cedula">Funcionario por cedula</b-button>
         </div>        
 
     </div>

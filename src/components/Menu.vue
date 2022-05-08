@@ -19,7 +19,7 @@ export default {
         { sitio: "Gestion de Usuarios", direccion: "/gestion_usuario" },
         { sitio: "Reserva", direccion: "/gestion_reserva" },
         { sitio: "Parqueos", direccion: "/consulta_parqueos" },
-        { sitio: "Informes", direccion: "/Informe" },
+        { sitio: "Informes", direccion: "/Informes" },
         { sitio: "Registar Placa", direccion: "/gestion_placas" },
       ],
     });
