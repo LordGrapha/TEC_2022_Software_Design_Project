@@ -10,19 +10,23 @@
 
       <input v-model="data.password" type="placa" class="form-control" placeholder="Número de Placa" required>
 
+      <div class=box>
+        <p>
+          <input type="checkbox" v-model="reserva" style="margin: 10px">
+          Permiso reserva
+        </p>
+      </div>
+      <div>
+        <p>
+          <input type="checkbox" v-model="consulta" style="margin: 10px">
+          Permiso consulta
+        </p>             
+      </div>
+
       <button class="w-100 btn btn-lg btn-primary" type="submit">Agregar</button>
     </form>
 
-    <div class=box>
-      <p>
-        <input type="checkbox" v-model="reserva">
-        Permiso reserva
-      </p>
-      <p>
-        <input type="checkbox" v-model="consulta">
-        Permiso consulta
-      </p>             
-    </div>
+
 
   </div>
 </template>

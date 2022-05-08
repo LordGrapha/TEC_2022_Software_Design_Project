@@ -16,7 +16,7 @@ export default {
   setup() {
     const data = reactive({
       menu: [
-        { sitio: "Gestion de Usuarios", direccion: "/gestion_usuario" },
+        { sitio: "Gestion de Usuarios", direccion: "/gestion" },
         { sitio: "Reserva", direccion: "/gestion_reserva" },
         { sitio: "Parqueos", direccion: "/consulta_parqueos" },
         { sitio: "Informes", direccion: "/Informes" },

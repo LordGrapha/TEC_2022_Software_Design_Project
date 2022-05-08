@@ -7,12 +7,20 @@
     <input v-model="data.password" type="password" class="form-control" placeholder="Clave" required>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesión</button>
+    <div>
+      <b-link href="#foo">Link</b-link>
+    </div>
+    
   </form>
 </template>
 
 <script lang="ts">
 import {reactive} from 'vue';
 import {useRouter} from "vue-router";
+import menu from "../components/Menu.vue";
+import { LinkPlugin } from 'bootstrap-vue'
+
+
 export default {
   name: "Login",
   setup() {
@@ -42,6 +50,9 @@ export default {
       data,
       submit
     }
-  }
+  },
+  components: {
+      menu: menu 
+  },  
 }
 </script>
