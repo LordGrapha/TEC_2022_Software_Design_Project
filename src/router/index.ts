@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/', component: Login },
   { path: '/menu', component: Menu },
   { path: '/gestion_reserva', component: Reservacion },
-  { path: '/Informes', component: Informes },
+  { path: '/informes', component: Informes },
 ]
 
 const router = createRouter({
