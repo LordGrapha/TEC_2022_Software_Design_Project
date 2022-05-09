@@ -1,8 +1,6 @@
 <template>
-  <div class="direccion">
+  <div class="reservar">
     <div>
-      <label> Duracion de la Reserva </label>
-      <input type="text" v-bind="data.duracionReserva" class="form-control" />
       <label> Zonas </label>
       <select v-bind="data.zonaReserva" class="form-control">
         <option
@@ -13,24 +11,17 @@
           {{ zona.nombre }}
         </option>
       </select>
+      <div class="form-group">
+        <label for="Direccion">Direccion</label>
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          v-bind="data.direccionZona"
+        ></textarea>
+      </div>
     </div>
-    <div>
-      <label> Espacios </label>
-      <select v-bind="data.espacioReserva" class="form-control">
-        <option
-          v-for="espacio in data.catalogoEspacio"
-          :value="espacio.idNombre"
-          :key="espacio.idNombre"
-        >
-          {{ espacio.nombre }}
-        </option>
-      </select>
-    </div>
-    <div>
-      <label> Numero de Placa </label>
-      <input type="text" v-bind="data.placa" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Reservar</button>
+    <button type="submit" class="btn btn-primary">Consultar</button>
   </div>
 </template>
 
@@ -46,16 +37,7 @@ export default {
         { idNombre: 2, nombre: "zonaB" },
         { idNombre: 3, nombre: "zonaC" },
       ],
-      catalogoEspacio: [
-        { idNombre: 1, nombre: "138A" },
-        { idNombre: 2, nombre: "139A" },
-        { idNombre: 3, nombre: "140A" },
-      ],
-      horaReserva: "",
-      duracionReserva: "",
-      zonaReserva: "",
-      espacioReserva: "",
-      placa: "",
+      direccionZona: "",
     });
     const router = useRouter();
     const submit = async () => {
@@ -75,13 +57,13 @@ export default {
 };
 </script>
 <style scoped>
-.direccion {
+.reservar {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.direccion div {
+.reservar div {
   width: 100%;
   margin: 0.5em 0;
 }
