@@ -8,7 +8,7 @@
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesión</button>
     <div>
-      <b-link href="#foo">Link</b-link>
+      <router-link to="/menu">Ingreso como invitado</router-link>
     </div>
     
   </form>
