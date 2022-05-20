@@ -18,7 +18,7 @@
 import {reactive} from 'vue';
 import {useRouter} from "vue-router";
 import menu from "../components/Menu.vue";
-import { LinkPlugin } from 'bootstrap-vue'
+const axios = require('axios').default;
 
 
 export default {
@@ -30,15 +30,9 @@ export default {
     });
     const router = useRouter();
     const submit = async () => {
-      const response = await fetch('https://sisparking-backend.herokuapp.com//api/login', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        credentials: 'include',
-        body: JSON.stringify(data)
-      });
-      console.log(response);
-      
-      if(response){
+      const response = await axios.post('http://localhost:5000/api/auth/login', 
+      data);
+      if(response.data){
         await router.push('/menu');
       }
       else {

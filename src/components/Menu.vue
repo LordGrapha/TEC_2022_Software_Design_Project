@@ -1,10 +1,14 @@
 <template>
   <div>
-    <ul>
-      <li v-for="pagina in data.menu" :key="pagina.sitio">
-        <a :href="pagina.direccion">{{ pagina.sitio }}</a>
-      </li>
-    </ul>
+    <b-sidebar id="sidebar-border" sidebar-class="border-right border-danger">
+      <div>
+        <ul>
+          <li v-for="pagina in data.menu" :key="pagina.sitio">
+            <a :href="pagina.direccion">{{ pagina.sitio }}</a>
+          </li>
+        </ul>
+      </div>
+    </b-sidebar>
   </div>
 </template>
 
@@ -24,18 +28,10 @@ export default {
       ],
     });
     const router = useRouter();
-    const submit = async () => {
-      await fetch("http://localhost:8000/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify(data),
-      });
-      await router.push("/");
-    };
+
     return {
       data,
-      submit,
+
     };
   },
 };
