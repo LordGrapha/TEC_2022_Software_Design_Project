@@ -30,7 +30,7 @@ export default {
     });
     const router = useRouter();
     const submit = async () => {
-      const response = await axios.post('http://localhost:5000/api/auth/login', 
+      const response = await axios.post('http://sisparking-backend.herokuapp.com/api/auth/login', 
       data);
       if(response.data){
         await router.push('/menu');
